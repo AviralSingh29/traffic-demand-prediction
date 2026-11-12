@@ -52,10 +52,6 @@ The solution implements an end-to-end **CatBoost-based regression pipeline**, in
 
 ![Feature Importance](images/feature_importance.png)
 
-### Leaderboard Performance
-
-![Leaderboard Score](images/leaderboard_score.png)
-
 ---
 
 ## Dataset

@@ -1,10 +1,24 @@
-# Traffic Demand Prediction using CatBoost
+# UrbanFlow AI — Urban Traffic Demand Forecasting Platform
+
+### Flipkart Gridlock Hackathon 2.0
 
 ## Overview
 
-This project focuses on forecasting urban traffic demand using machine learning techniques on spatio-temporal, environmental, and road-network data.
+UrbanFlow AI is a machine learning-based urban traffic demand forecasting platform designed to predict traffic demand across Bengaluru's road network.
 
-The objective is to predict traffic demand at different locations and timestamps to support transportation planning, congestion management, and data-driven mobility solutions.
+The project leverages spatio-temporal, environmental, and road-network data to identify traffic demand patterns and generate accurate predictions. The objective is to support data-driven urban mobility planning, congestion management, and intelligent transportation systems.
+
+The solution implements an end-to-end **CatBoost-based regression pipeline**, incorporating exploratory data analysis, data preprocessing, feature engineering, model training, and predictive performance evaluation.
+
+---
+
+## Key Highlights
+
+- Developed a CatBoost-based regression pipeline for urban traffic demand forecasting.
+- Performed exploratory data analysis (EDA) to understand spatio-temporal traffic patterns.
+- Implemented data preprocessing and feature engineering to extract meaningful predictive information.
+- Engineered temporal and geospatial features to capture traffic demand variations.
+- Optimized model hyperparameters to improve predictive performance.
 
 ---
 
@@ -12,18 +26,19 @@ The objective is to predict traffic demand at different locations and timestamps
 
 ### Model Performance
 
-| Metric                               | Score       |
-| ------------------------------------ | ----------- |
-| Validation R² Score                  | **0.9436**  |
-| Hackerearth Public Leaderboard Score | **90.8044** |
+| Metric | Score |
+|---|---:|
+| Validation R² Score | **0.9436** |
+| HackerEarth Public Leaderboard Score | **90.8044** |
 
 ### Final Model
 
 **CatBoost Regressor**
 
-* Iterations: 2000
-* Depth: 8
-* Learning Rate: 0.03
+- Iterations: 2000
+- Depth: 8
+- Learning Rate: 0.03
+- Loss Function: RMSE
 
 ---
 
@@ -31,11 +46,15 @@ The objective is to predict traffic demand at different locations and timestamps
 
 ### Validation Performance
 
-![Validation](images/validation_score.png)
+![Validation Performance](images/validation_score.png)
 
 ### Feature Importance
 
 ![Feature Importance](images/feature_importance.png)
+
+### Leaderboard Performance
+
+![Leaderboard Score](images/leaderboard_score.png)
 
 ---
 
@@ -43,50 +62,68 @@ The objective is to predict traffic demand at different locations and timestamps
 
 ### Dataset Size
 
-* Training Samples: 77,299
-* Test Samples: 41,778
+- Training Samples: 77,299
+- Test Samples: 41,778
 
 ### Features
 
-* Geohash
-* Day
-* Timestamp
-* RoadType
-* NumberofLanes
-* LargeVehicles
-* Landmarks
-* Temperature
-* Weather
+- Geohash
+- Day
+- Timestamp
+- RoadType
+- NumberofLanes
+- LargeVehicles
+- Landmarks
+- Temperature
+- Weather
 
 ### Target Variable
 
-* Demand
+- Demand
 
 ---
 
 ## Exploratory Data Analysis (EDA)
 
-Performed comprehensive analysis including:
+Performed exploratory analysis to understand traffic demand patterns and identify relationships between different features.
 
-* Missing value analysis
-* Demand distribution analysis
-* Weather-wise demand analysis
-* Road type analysis
-* Lane count analysis
-* Geospatial feature analysis
+Key analysis included:
+
+- Missing value analysis
+- Demand distribution analysis
+- Weather-wise demand analysis
+- Road type analysis
+- Lane count analysis
+- Geospatial feature analysis
+
+---
+
+## Data Preprocessing
+
+Prepared the dataset for machine learning through data preprocessing and transformation.
+
+Key operations included:
+
+- Data inspection and validation
+- Missing value analysis and treatment
+- Data type handling
+- Categorical feature preparation
+- Training and validation data preparation
 
 ---
 
 ## Feature Engineering
 
-Created additional predictive features to improve model performance:
+Developed additional predictive features to capture temporal and geographical traffic patterns.
 
-* Hour extraction from timestamp
-* Minute extraction from timestamp
-* Rush Hour indicator
-* Evening Peak indicator
-* Geohash Prefix encoding
-* Traffic pattern-based temporal features
+Key engineered features included:
+
+- Hour extraction from timestamps
+- Minute extraction from timestamps
+- Rush Hour indicator
+- Evening Peak indicator
+- Geohash Prefix encoding
+- Traffic pattern-based temporal features
 
 ---
 
@@ -94,16 +131,17 @@ Created additional predictive features to improve model performance:
 
 ### Algorithm
 
-CatBoost Regressor
+**CatBoost Regressor**
 
 ### Why CatBoost?
 
-* Handles categorical variables efficiently
-* Requires minimal preprocessing
-* Robust against overfitting
-* Strong performance on tabular datasets
+- Efficient handling of categorical variables.
+- Strong performance on structured and tabular datasets.
+- Reduced requirement for extensive categorical preprocessing.
+- Built-in regularization to help control overfitting.
+- Effective modelling of complex feature relationships.
 
-### Hyperparameters
+### Model Hyperparameters
 
 ```python
 iterations = 2000
@@ -116,25 +154,23 @@ loss_function = "RMSE"
 
 ## Tech Stack
 
-* Python
-* Pandas
-* NumPy
-* Scikit-Learn
-* CatBoost
-* Matplotlib
-* Jupyter Notebook
+- **Programming Language:** Python
+- **Data Manipulation:** Pandas, NumPy
+- **Machine Learning:** Scikit-Learn, CatBoost
+- **Data Visualization:** Matplotlib
+- **Development Environment:** Jupyter Notebook
 
 ---
 
 ## Key Learnings
 
-* Feature engineering for spatio-temporal datasets
-* Geospatial feature extraction using Geohash
-* Traffic demand forecasting using machine learning
-* Handling categorical variables with CatBoost
-* Model evaluation using R² Score
-* Feature importance interpretation
-* End-to-end machine learning workflow development
+- Spatio-temporal feature engineering for traffic forecasting.
+- Geospatial feature extraction using Geohash.
+- Exploratory data analysis of urban traffic patterns.
+- Handling categorical variables using CatBoost.
+- Regression modelling and predictive performance evaluation.
+- Hyperparameter optimization and model improvement.
+- End-to-end machine learning pipeline development.
 
 ---
 
@@ -143,11 +179,20 @@ loss_function = "RMSE"
 ```text
 traffic-demand-prediction/
 │
-├── Traffic_Demand_Prediction_CatBoost.ipynb
+├── Traffic_Demand_Prediction.ipynb
 ├── README.md
 ├── requirements.txt
+│
 └── images/
     ├── validation_score.png
     ├── feature_importance.png
     └── leaderboard_score.png
 ```
+
+---
+
+## Project Objective
+
+UrbanFlow AI aims to demonstrate how machine learning and spatio-temporal data analysis can contribute to smarter urban mobility planning by forecasting traffic demand across Bengaluru's road network.
+
+**Developed as part of Flipkart Gridlock Hackathon 2.0.**
